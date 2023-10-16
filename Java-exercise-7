@@ -1,4 +1,7 @@
-package javaapplication12;
+//Team 7
+
+//1. Ciiphertext 
+
 import java.util.Scanner;
 public class JavaApplication12 {
     public static void main(String[] args) {
@@ -31,3 +34,45 @@ public class JavaApplication12 {
         return result.toString();
     }
 }
+
+
+//2. E-mail generator
+
+import java.util.Scanner;
+
+class EmailGenerator {
+    private String firstName;
+    private String lastName;
+
+    public EmailGenerator(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    public String generateEmail() {
+        String firstPart = firstName.substring(0, 3).toLowerCase();
+        String lastPart = lastName.substring(0, 4).toLowerCase();
+        String domain = "example.com";
+        return firstPart + "." + lastPart + "@" + domain;
+    }
+}
+
+public class EmailAddressGenerator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter first name: ");
+        String firstName = scanner.nextLine();
+
+        System.out.print("Enter last name: ");
+        String lastName = scanner.nextLine();
+
+        EmailGenerator emailGenerator = new EmailGenerator(firstName, lastName);
+        String emailAddress = emailGenerator.generateEmail();
+
+        System.out.println("Generated email address: " + emailAddress);
+    }
+}
+
+
+
